@@ -4,7 +4,8 @@ import Appointment from "components/Appointment/index";
 import "components/Application.scss";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { getAppointmentsForDay, getInterview } from "helpers/selectors";
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
+import useVisualMode from "hooks/useVisualMode";
 
 export default function Application(props) {
   const [state, setState] = useState({
@@ -27,7 +28,8 @@ export default function Application(props) {
       key={appointment.id}
       id={appointment.id}
       time={appointment.time}
-      interview={appointment.interview}
+      interview={interview}
+      interviewers={getInterviewersForDay(state, state.day)}
     />;
   });
 

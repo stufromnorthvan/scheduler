@@ -19,3 +19,16 @@ export function getInterview(state, interview) {
   interviewData.interviewer = state.interviewers[interview.interviewer]
   return interviewData
 }
+
+export function getInterviewersForDay(state, day) {
+  const dayInterviewers = [];
+  const filtDay =  state.days.filter(apptDay => apptDay.name === day);
+  if (filtDay[0] === undefined) {
+    return dayInterviewers
+  }
+  for (let interviewer of filtDay[0].interviewers) {
+    dayInterviewers.push(state.interviewers[interviewer])
+  }
+  console.log(dayInterviewers)
+  return dayInterviewers;
+}
