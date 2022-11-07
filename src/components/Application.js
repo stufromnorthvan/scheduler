@@ -1,11 +1,11 @@
 import DayList from "./DayList";
-import InterviewerList from "./InterviewerList";
+// import InterviewerList from "./InterviewerList";
 import Appointment from "components/Appointment/index";
 import "components/Application.scss";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
-import useVisualMode from "hooks/useVisualMode";
+// import useVisualMode from "hooks/useVisualMode";
 
 export default function Application(props) {
   const [state, setState] = useState({
@@ -13,6 +13,10 @@ export default function Application(props) {
     days: [],
     appointments: {}
   });
+
+  function bookInterview(id, interview) {
+    console.log(id, interview);
+  }
 
   const appointments = getAppointmentsForDay(state, state.day)
 
@@ -30,6 +34,7 @@ export default function Application(props) {
       time={appointment.time}
       interview={interview}
       interviewers={getInterviewersForDay(state, state.day)}
+      bookInterview={bookInterview}
     />;
   });
 

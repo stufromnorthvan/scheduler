@@ -15,7 +15,7 @@ export default function Form(props) {
     props.onCancel(`Cancelled`)
   }
   const save = () => {
-    props.onSave(`${student}, ${interviewer}`)
+    props.onSave(student, interviewer)
   }
 
   return (

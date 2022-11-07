@@ -29,6 +29,5 @@ export function getInterviewersForDay(state, day) {
   for (let interviewer of filtDay[0].interviewers) {
     dayInterviewers.push(state.interviewers[interviewer])
   }
-  console.log(dayInterviewers)
   return dayInterviewers;
 }
