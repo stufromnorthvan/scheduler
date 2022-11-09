@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function useApplicationData() {
   
@@ -28,9 +28,8 @@ export default function useApplicationData() {
         ...state,
         appointments
       })
-    }).catch((err) => {
-      console.log(err);
-    });
+    })
+    
     return apiPromise;
   }
 
@@ -62,9 +61,8 @@ export default function useApplicationData() {
         ...state,
         appointments
       })
-    }).catch((err) => {
-      console.log(err);
-    });
+    })
+
     return apiPromise;
   }
 
