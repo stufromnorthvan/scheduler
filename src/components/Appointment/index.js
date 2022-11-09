@@ -36,7 +36,6 @@ export default function Appointment(props) {
       .then(() => {
         transition(SHOW, false);
       }).catch((err) => {
-        console.log("any word")
         transition(ERROR_SAVE, true)
       })
   }
@@ -58,7 +57,7 @@ export default function Appointment(props) {
   function edit(id) {
     transition(EDIT);
   }
-
+ 
   return (
     <article className="appointment">
       <Header time={props.time} />
