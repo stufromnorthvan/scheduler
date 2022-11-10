@@ -12,6 +12,7 @@ export default function Form(props) {
     setInterviewer("")
   }
   const cancel = () => {
+    setError(false)
     reset()
     props.onCancel(`Cancelled`)
   }
@@ -34,6 +35,7 @@ export default function Form(props) {
             placeholder="Enter Student Name"
             value={student}
             onChange={(event) => setStudent(event.target.value)}
+            data-testid="student-name-input"
           />
         </form>
         <InterviewerList
@@ -44,9 +46,9 @@ export default function Form(props) {
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
+        {error === true && <section className="appointment__validation"> &nbsp;  Please enter a name and interviewer</section>}
           <Button danger onClick={cancel}>Cancel</Button>
           <Button confirm onClick={save}>Save</Button>
-          {error === true && <section className="error">&nbsp; &nbsp; Please enter a name and interviewer</section>}
         </section>
       </section>
     </main>
