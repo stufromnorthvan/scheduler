@@ -19,14 +19,14 @@ describe("Form", () => {
     );
     expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");
   });
-
+// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
   it("renders with initial student name", () => {
     const { getByTestId } = render(
       <Form interviewers={interviewers} student="Lydia Miller-Jones" />
     );
     expect(getByTestId("student-name-input")).toHaveValue("Lydia Miller-Jones");
   });
-
+// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
   it("validates that the student name is not blank", () => {
     const onSave = jest.fn();
     const { getByText } = render(
@@ -38,7 +38,7 @@ describe("Form", () => {
 
     expect(onSave).not.toHaveBeenCalled();
   });
-
+// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
   it("validates that the interviewer cannot be null", () => {
     const onSave = jest.fn();
     const { getByText } = render(
@@ -50,7 +50,7 @@ describe("Form", () => {
 
     expect(onSave).not.toHaveBeenCalled();
   });
-
+// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
   it("calls onSave function when the name is defined", () => {
     const onSave = jest.fn();
     const { getByText, queryByText } = render(
@@ -66,7 +66,7 @@ describe("Form", () => {
     /* 7. onSave is called with the correct arguments */
     expect(onSave).toHaveBeenCalledWith("Lydia Miller-Jones", 1);
   });
-
+// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
   it("submits the name entered by the user", () => {
     const onSave = jest.fn();
     const { getByText, getByPlaceholderText } = render(
@@ -81,7 +81,7 @@ describe("Form", () => {
     expect(onSave).toHaveBeenCalledTimes(1);
     expect(onSave).toHaveBeenCalledWith("Lydia Miller-Jones", 1);
   });
-
+// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
   it("calls onCancel and resets the input field", () => {
     const onCancel = jest.fn();
     const { getByText, getByPlaceholderText, queryByText } = render(

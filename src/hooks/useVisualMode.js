@@ -7,7 +7,7 @@ export default function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);
 
-  // transition function transitions to a new mode and puts the new mode at the end of the history array. if replace argument is true, it replaces current mode's place at the end of the history array.
+  // transition function goes to a new mode and puts the mode at the end of the history array. if replace = true, it replaces current mode's place in history array.
 
   const transition = function(newMode, replace = false) {
     if (replace) {

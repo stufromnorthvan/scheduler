@@ -92,14 +92,14 @@ export default function useApplicationData() {
     };
 
     return axios.delete(`/api/appointments/${id}`)
-    .then(() => {
-      const days = updateSpots(state.days, appointments);
-      setState({
-        ...state,
-        appointments,
-        days
+      .then(() => {
+        const days = updateSpots(state.days, appointments);
+        setState({
+          ...state,
+          appointments,
+          days
+        });
       });
-    });
   }
 
   return { state, setDay, bookInterview, cancelInterview };

@@ -8,6 +8,9 @@ import useApplicationData from "hooks/useApplicationData";
 
 
 export default function Application(props) {
+
+  // Application State
+
   const {
     state,
     setDay,
@@ -15,7 +18,11 @@ export default function Application(props) {
     cancelInterview
   } = useApplicationData();
 
+  // appointments variable is appointments for day in state
+
   const appointments = getAppointmentsForDay(state, state.day);
+
+  // appointmentItems maps appointments data over Appointment component
 
   const appointmentItems = appointments.map((appointment) => {
 
