@@ -4,6 +4,8 @@ import "components/InterviewerListItem.scss";
 
 export default function InterviewerListItem(props) {
 
+  // interviewerClass changes stylization of interviewer button based on status, "selected" or not
+
   const interviewerClass = classNames("interviewers__item", {
     "interviewers__item--selected": props.selected
   });

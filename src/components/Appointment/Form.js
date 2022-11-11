@@ -4,18 +4,29 @@ import InterviewerList from "components/InterviewerList";
 
 export default function Form(props) {
 
+  // Form State
+
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const [error, setError] = useState(false)
+
+  // Reset function to set form to original state
+
   const reset = function() {
     setStudent("")
     setInterviewer("")
   }
+
+  // Cancel function to reset and run onCancel function
+
   const cancel = () => {
     setError(false)
     reset()
     props.onCancel(`Cancelled`)
   }
+
+  // Save function first checks if interviewer and student are selected, and saves if they are. If they are not, error message is shown.
+
   const save = () => {
     if (!interviewer || !student) {
       return setError(true)

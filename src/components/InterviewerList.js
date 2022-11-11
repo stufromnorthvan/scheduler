@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 
 export default function InterviewerList(props) {
 
+  // Function that inserts interviewers data from props into our InterviewerListItem component as props
+
   const interviewers = props.interviewers.map((interviewer) => {
     return (
       <InterviewerListItem

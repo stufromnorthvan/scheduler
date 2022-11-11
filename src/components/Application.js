@@ -8,6 +8,7 @@ import useApplicationData from "hooks/useApplicationData";
 
 
 export default function Application(props) {
+  console.log("rendering Application")
   const {
     state,
     setDay,

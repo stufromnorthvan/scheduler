@@ -1,8 +1,13 @@
 import { useState } from "react";
 
 export default function useVisualMode(initial) {
+
+  // Visual mode state and history
+
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);
+
+  // transition function transitions to a new mode and puts the new mode at the end of the history array. if replace argument is true, it replaces current mode's place at the end of the history array.
 
   const transition = function(newMode, replace = false) {
     if (replace) {
@@ -13,6 +18,8 @@ export default function useVisualMode(initial) {
     setHistory(prev => [...prev, newMode]);
 
   };
+
+  // back function removes current mode from end of history array and returns to previous mode
 
   function back() {
     if (history.length > 1) {

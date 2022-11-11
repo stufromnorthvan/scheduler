@@ -3,10 +3,15 @@ import classNames from "classnames";
 import "components/DayListItem.scss";
 
 export default function DayListItem(props) {
+
+  // dayClass changes the styling of the day item in the sidebar depending on the status, "selected" or "full" (no spots available)
+
   const dayClass = classNames("day-list__item", {
     "day-list__item--selected": props.selected,
     "day-list__item--full": props.spots === 0
   });
+
+  // formatSpots displays dynamic and contextualized text in the sidebar depending on the number of spots available
 
   const formatSpots = function() {
     if (props.spots === 1) {
@@ -19,7 +24,7 @@ export default function DayListItem(props) {
   };
 
   return (
-    <li className={dayClass} onClick={props.setDay}>
+    <li className={dayClass} onClick={props.setDay } data-testid="day">
       <h2 className="text--regular">{props.name}</h2>
       <h3 className="text--light">{formatSpots()}</h3>
     </li>
