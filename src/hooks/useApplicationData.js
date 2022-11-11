@@ -54,15 +54,14 @@ export default function useApplicationData() {
       [id]: appointment
     };
     const days = updateSpots(state.days, appointments);
-    const apiPromise = axios.put(`/api/appointments/${id}`, appointment);
-    apiPromise.then(() => {
-      setState({
-        ...state,
-        appointments,
-        days
+    return axios.put(`/api/appointments/${id}`, appointment)
+      .then(() => {
+        setState({
+          ...state,
+          appointments,
+          days
+        });
       });
-    });
-    return apiPromise;
   }
 
   // useEffect updates the local state of the app whenever the api data is changed
@@ -92,19 +91,15 @@ export default function useApplicationData() {
       [id]: appointment
     };
 
-    const apiPromise = axios.delete(`/api/appointments/${id}`);
-    apiPromise.then(() => {
-      console.log("setting state");
+    return axios.delete(`/api/appointments/${id}`)
+    .then(() => {
       const days = updateSpots(state.days, appointments);
       setState({
         ...state,
         appointments,
         days
       });
-      console.log("state set");
     });
-
-    return apiPromise;
   }
 
   return { state, setDay, bookInterview, cancelInterview };

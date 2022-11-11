@@ -25,14 +25,12 @@ const CONFIRM_DELETE = "CONFIRM_DELETE";
 
 
 export default function Appointment(props) {
-  console.log("rendering Appointment")
 
   // Visual mode functions
 
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
-  console.log(mode)
 
   // Save function, creates a new interview object and transitions modes
 
@@ -58,9 +56,7 @@ export default function Appointment(props) {
       .then(() => {
         transition(EMPTY, false);
       }).catch((err) => {
-        console.log(err.message)
         transition(ERROR_DELETE, true);
-        console.log(err.message)
       })
   }
 
