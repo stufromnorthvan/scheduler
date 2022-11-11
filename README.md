@@ -16,6 +16,12 @@ Scheduler is an app that allows students to schedule interviews during the week.
 
 ## 🪶 Screenshots
 
+!["Interview Booking"](https://github.com/stufromnorthvan/scheduler/blob/master/docs/scheduler-appointment.png?raw=true)
+
+
+
+!["Interview Deletion"](https://github.com/stufromnorthvan/scheduler/blob/master/docs/scheduler-confirm.png?raw=true)
+
 ## 🪶 Setup 
 
 Install dependencies:
